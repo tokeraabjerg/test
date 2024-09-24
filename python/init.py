@@ -32,6 +32,10 @@ def takeInputs():
         print("All arguments are not digits, please try again")
         takeInputs()
 
+
+
+
+
 def mainScope():
     InputArg = input("1: Addition \nX:close \n")
 
@@ -41,9 +45,11 @@ def mainScope():
     match InputArg:
         case "1":
             print("---- Addition ----")
-            addition.addit(takeInputs())
+            print(addition.addit(takeInputs()))
         case _:
             print("Invalid input, try again")
             mainScope()
 
 mainScope()
+
+

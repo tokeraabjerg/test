@@ -1,4 +1,4 @@
 
-def addit(value1, value2):
-    sum_addit = value1 + value2
+def addit(ar1):
+    sum_addit = ar1[0] + ar1[1]
     return sum_addit
