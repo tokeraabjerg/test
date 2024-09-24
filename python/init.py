@@ -17,6 +17,7 @@
 
 
 import addition
+import subtraction
 
 arg1=""
 arg2=""
@@ -37,7 +38,7 @@ def takeInputs():
 
 
 def mainScope():
-    InputArg = input("1: Addition \nX:close \n")
+    InputArg = input("1: Addition \n2: Subtraction \nX:close \n")
 
     if(InputArg == "X"):
         return print("Closing calculator")
@@ -46,6 +47,9 @@ def mainScope():
         case "1":
             print("---- Addition ----")
             print(addition.addit(takeInputs()))
+        case "2":
+            print("---- Subtraction ----")
+            print(subtraction.addit(takeInputs()))
         case _:
             print("Invalid input, try again")
             mainScope()
