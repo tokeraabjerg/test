@@ -2,7 +2,7 @@ import open3d as o3d
 import numpy as np
 
 # Load the point cloud from a .ply file
-pcd = o3d.io.read_point_cloud("airplane.ply")
+pcd = o3d.io.read_point_cloud("rim.ply")
 
 # Convert point cloud to a numpy array
 points = np.asarray(pcd.points)
