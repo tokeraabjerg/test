@@ -9,6 +9,10 @@ points = np.asarray(pcd.points)
 
 o3d.visualization.draw_geometries([pcd])
 
+#reduced_pc = pcd.uniform_down_sample(every_k_points=2)
+
+# Write the point cloud to a file (e.g., PLY format)
+#o3d.io.write_point_cloud("/Users/tokeraabjerg/Downloads/rim2.ply", reduced_pc)
 
 # Print the number of points and the first 5 points
 print(f"Total number of points: {points.shape[0]}")
