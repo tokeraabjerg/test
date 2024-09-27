@@ -18,6 +18,7 @@
 
 import addition
 import subtraction
+import open3d
 
 arg1=""
 arg2=""
