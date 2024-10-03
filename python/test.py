@@ -1,31 +1,23 @@
+from datetime import datetime
+startTime = datetime.now()
+
 import numpy as np
 import open3d as o3d
+import pcd_bin_io
 
-# Path to your .bin file
-bin_file = "/Users/tokeraabjerg/Downloads/PointCloud_Scan_0.bin"
+point_data = pcd_bin_io.read("/Users/tokeraabjerg/Dropbox/Skole/Universitet/5. Semester/MP5 Projekt/TransformedPointCloud.bin")
 
-# Load the .bin file assuming 'double' precision (float64) for (X, Y, Z, I)
-point_data = np.fromfile(bin_file, dtype=np.float64).reshape(-1, 4)
+print("Bin read")
+print(datetime.now() - startTime)
 
-# Filter out rows that contain only zeros
-# This removes any points where all values are zero
-filtered_data = point_data[np.any(point_data != 0, axis=1)]
-
-# Extract X, Y, Z columns (omit intensity)
-xyz = filtered_data[:, :3]
-
-subset_xyz = xyz[:10]  # Change this number as needed
-
-# Create an Open3D point cloud object
+# Create an Open3D PointCloud object
 pcd = o3d.geometry.PointCloud()
+pcd.points = o3d.utility.Vector3dVector(point_data[:, :3])
 
-# Assign points to the point cloud
-pcd.points = o3d.utility.Vector3dVector(xyz)
 
 # Visualize the point cloud
-o3d.visualization.draw_geometries([pcd])
+o3d.visualization.draw_geometries([pcd], window_name="Point Cloud Visualization")
 
-# Print the number of points and the first 10 points after filtering
-print(f"Total number of points after filtering: {xyz.shape[0]}")
-print("First 10 points after filtering:")
-print(xyz[1000:2000])
+# Optional: Save the point cloud to a file (e.g., PLY format)
+# output_file = "/Users/tokeraabjerg/Downloads/PointCloudData.ply"
+# o3d.io.write_point_cloud(output_file, pcd)
