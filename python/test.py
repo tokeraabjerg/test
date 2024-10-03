@@ -14,9 +14,13 @@ print(datetime.now() - startTime)
 pcd = o3d.geometry.PointCloud()
 pcd.points = o3d.utility.Vector3dVector(point_data[:, :3])
 
+print("Downsample the point cloud with a voxel of 0.1")
+downpcd = pcd.voxel_down_sample(voxel_size=0.05)
 
 # Visualize the point cloud
-o3d.visualization.draw_geometries([pcd], window_name="Point Cloud Visualization")
+print("Visualize file")
+print(datetime.now() - startTime)
+o3d.visualization.draw_geometries([downpcd], window_name="Point Cloud Visualization")
 
 # Optional: Save the point cloud to a file (e.g., PLY format)
 # output_file = "/Users/tokeraabjerg/Downloads/PointCloudData.ply"
