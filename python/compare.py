@@ -1,3 +1,6 @@
+from datetime import datetime
+startTime = datetime.now()
+
 import numpy as np
 import open3d as o3d
 import pcd_bin_io
@@ -22,6 +25,8 @@ def load_point_cloud(bin_file):
 # Load original and transformed point clouds
 original_pcd = load_point_cloud(original_bin_file)
 transformed_pcd = load_point_cloud(transformed_bin_file)
+print("Bin read")
+print(datetime.now() - startTime)
 
 # Downsample both point clouds for efficient visualization
 original_pcd_downsampled = original_pcd.voxel_down_sample(voxel_size=voxel_size)

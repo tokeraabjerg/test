@@ -20,7 +20,7 @@ downpcd = pcd.voxel_down_sample(voxel_size=0.05)
 # Visualize the point cloud
 print("Visualize file")
 print(datetime.now() - startTime)
-o3d.visualization.draw_geometries([downpcd], window_name="Point Cloud Visualization")
+o3d.visualization.draw_geometries([pcd], window_name="Point Cloud Visualization")
 
 # Optional: Save the point cloud to a file (e.g., PLY format)
 # output_file = "/Users/tokeraabjerg/Downloads/PointCloudData.ply"
